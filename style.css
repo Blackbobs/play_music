@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #eee;
+    color: #333;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    overflow: hidden;
+}
+
+.music-container {
+    background-color: #222;
+    color: #ddd;
+    max-width: 300px;
+    position: relative;
+    margin: 100px auto;
+    padding: 10px;
+    height: 500px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 3px 3px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.music-container>h2 {
+    font-size: 2rem;
+    text-align: center;
+    padding: 5px;
+    border-bottom: 3px solid rgb(49, 49, 161);
+}
+
+.img-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.img-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 3px 4px 20px 20px rgba(255, 255, 255, 0.2);
+    left: 0;
+    bottom: 0;
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+}
+
+.music-container.play .img-container img {
+    animation-play-state: running;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.img-container::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: #eee;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    border-radius: 50%;
+    transform: translate(-35%, 50%);
+}
+
+#title {
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 5px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.action-btn {
+    border: 0;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 20px;
+    background-color: transparent;
+    color: #ddd;
+}
+
+.action-btn-big {
+    font-size: 30px;
+    color: #eee;
+}
+
+.action-btn:focus {
+    outline: 0;
+}
+
+.music-info {
+    position: relative;
+    width: 100%;
+
+}
+
+.progress-container {
+    background-color: #fff;
+    position: absolute;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 10px;
+    height: 20%;
+    width: 90%;
+}
+
+.progress {
+    background-color: rgb(80, 80, 199);
+    border-radius: 5px;
+    height: 100%;
+    width: 0%;
+    transition: width 0.1s linear;
+}
